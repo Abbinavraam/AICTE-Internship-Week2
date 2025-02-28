@@ -83,24 +83,8 @@ app.post('/signin', async (req, res) => {
     res.status(400).json({ message: 'Invalid credentials' });
   }
 });
-// app.post('/Signin', async (req, res) => {
-//   try {
-//     const { username, password } = req.body;
-//     const user = await User.findOne({ username, password });
-//     if (user) {
-//       const token = jwt.sign({ userId: user._id, username }, SECRET_KEY, { expiresIn: '1h' });
-//       res.json({ message: 'Signin successful', token });
-//     }
-//     else {
-//       res.status(400).json({ message: 'Invalid credentials' });
-//     }
-//   } catch (error) {
-//     console.error('Signin Error:', error);
-//     res.status(500).json({ message: 'Internal Server Error' });
-//   }
-// });
 
-// Create Auction Item (Protected)
+// Create Auction Item 
 app.post('/auction', authenticate, async (req, res) => {
   try {
     const { itemName, description, startingBid, closingTime } = req.body;
